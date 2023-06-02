@@ -13,7 +13,7 @@ def update_content(content, index):
     #lines[22] = lines[22].replace("010160", f"{10160 + index:06d}")
     lines[23] = lines[23].replace("2000", f"{2000 + index:06d}")
     lines[28] = lines[28].replace("2000", f"{2000 + index:06d}")
-    lines[27] = lines[27].replace("38893", f"{38893 + index:06d}")
+    lines[27] = lines[27].replace("38893", f"{38893 + index:06d}") #:06d}")
     '''
     #in the above line of code, line[2] refers to the 3rd index in the file. 
     e.g. line[2] means that line 3 in the MT542 will be the one being modified.
@@ -49,7 +49,7 @@ input_file = "C:/Users/dennis/Desktop/QA/KE_CSD/Python testing/mt542_issuanceFoP
 #path to the input folder where the MT542 message is stored
 
 
-output_dir = os.path.join(os.path.expanduser("~"), "Desktop", "3kFoPissuanceMessages")
+output_dir = os.path.join(os.path.expanduser("~"), "C:/Users/dennis/Desktop/3kFoPissuanceMessages")
 #save the files to the desktop "Desktop". Name of the directory "12kFoPissuanceMessages"
 num_files = 1000
 
@@ -58,7 +58,7 @@ generate_files(input_file, output_dir, num_files)
 
 import shutil
 
-# Define the paths of the source file 
+# Define the paths of the source file and the destination folder
 src_path = "C:/Users/dennis/Desktop/QA/KE_CSD/Python testing/mt542_issuanceFoP.txt"
 dst_folder = "C:/Users/dennis/Desktop/3kFoPissuanceMessages"
 
@@ -68,7 +68,13 @@ shutil.copy2(src_path, dst_folder)
 
 
 
-# Define path for the destination folder and the destination folder
+'''
+MT messages will be generated into the destination folder.
+The code below will merge all these messages into a single .txt file.
+We will copy the txt file and inject it into the SWIFT  QUEUE. 
+FOR PERFORMANCE TESTING, STOP THE QUEUES, INJECT THE MESSAGE, THE RESTART THE QUEUES
+'''
+# Set the path for the 'MT messages folder on Desktop
 desktop_path = os.path.expanduser("C:/Users/dennis/Desktop")
 folder_path = os.path.join(desktop_path, "C:/Users/dennis/Desktop/3kFoPissuanceMessages")
 
@@ -81,7 +87,7 @@ else:
 
     # Set the path for the 'merged11.txt' file
     #name of the new file that will be created
-    merged_file_path = os.path.join(folder_path, "3k_FoP_issuance_messages.txt")
+    merged_file_path = os.path.join(folder_path, "Merged_messages.txt")
 
     # Merge the contents of the files into 'merged11.txt'
     with open(merged_file_path, "w") as merged_file:
@@ -97,5 +103,5 @@ else:
     print("************************************************")
     print("************************************************")
     print("************************************************")
-    print("********FILE GENERATION AND MERGING DONE********")
+    print("***************OPERATION DONE*******************")
 
