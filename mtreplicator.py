@@ -85,11 +85,11 @@ else:
     # Get a list of all files in the folder
     file_names = [file for file in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, file))]
 
-    # Set the path for the 'merged11.txt' file
+    # Set the path for the 'merged.txt' file
     #name of the new file that will be created
     merged_file_path = os.path.join(folder_path, "Merged_messages.txt")
 
-    # Merge the contents of the files into 'merged11.txt'
+    # Merge the contents of the files into a 'merged.txt'
     with open(merged_file_path, "w") as merged_file:
         for file_name in file_names:
             with open(os.path.join(folder_path, file_name), "r") as file_to_merge:
