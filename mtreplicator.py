@@ -13,7 +13,7 @@ def update_content(content, index):
     #lines[22] = lines[22].replace("010160", f"{10160 + index:06d}")
     lines[23] = lines[23].replace("2000", f"{2000 + index:06d}")
     lines[28] = lines[28].replace("2000", f"{2000 + index:06d}")
-    lines[27] = lines[27].replace("38893", f"{38893 + index:06d}") #:06d}")
+    lines[27] = lines[27].replace("41890", f"{41890 + index}"))
     '''
     #in the above line of code, line[2] refers to the 3rd index in the file. 
     e.g. line[2] means that line 3 in the MT542 will be the one being modified.
@@ -51,7 +51,7 @@ input_file = "C:/Users/dennis/Desktop/QA/KE_CSD/Python testing/mt542_issuanceFoP
 
 output_dir = os.path.join(os.path.expanduser("~"), "C:/Users/dennis/Desktop/3kFoPissuanceMessages")
 #save the files to the desktop "Desktop". Name of the directory "12kFoPissuanceMessages"
-num_files = 1000
+num_files = 5000
 
 generate_files(input_file, output_dir, num_files)
 
